@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f2e8">
+<title>Crecer acompañados: de 5 a 9 años · Silvi-Aura</title>
+<meta name="description" content="Una aplicación interactiva para acompañar a niños de 5 a 9 años en alimentación, escuela, emociones, hábitos, juegos y autonomía.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#f7f2e8;--bg2:#efe8db;--card:#fffdf9;--text:#2f3f3b;--muted:#66736f;
+ --green:#5fbf98;--green2:#45a680;--mint:#dff3e9;--yellow:#f4c98a;--gold:#b37612;
+ --orange:#f0a26b;--blue:#4fb3bf;--line:rgba(47,63,59,.11);
+ --shadow:0 18px 45px rgba(70,60,40,.12);
+ --serif:'Fredoka',sans-serif;--sans:'Nunito',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(700px 400px at 100% 0%,rgba(95,191,152,.16),transparent 65%),
+ radial-gradient(600px 360px at 0% 55%,rgba(244,201,138,.14),transparent 65%),var(--bg);
+ color:var(--text);font-family:var(--sans);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+h1,h2,h3{font-family:var(--serif);line-height:1.12;margin:0}
+p{margin:0}
+.eyebrow{font-family:var(--serif);font-weight:600;color:var(--gold);font-size:1rem}
+.lead{font-size:1.1rem;color:var(--muted);max-width:700px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:15px 28px;font-weight:800;font-size:16px;cursor:pointer;transition:.2s;box-shadow:0 10px 24px rgba(70,60,40,.14)}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--green),var(--green2));color:#10302a}
+.btn-gold{background:linear-gradient(135deg,#fae0b6,#f0c486);color:#4a3312}
+.btn-white{background:#fff;color:var(--text)}
+header{padding:18px 0;position:relative;z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--serif);font-size:1.25rem;color:var(--gold)}
+.nav-note{font-size:.88rem;color:var(--muted);font-weight:700}
+.hero{padding:55px 0 35px}
+.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:45px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,6vw,5rem);letter-spacing:-1px;margin:10px 0 20px}
+.hero h1 span{color:var(--green2)}
+.hero-copy{font-size:1.17rem;color:var(--muted);max-width:620px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.micro{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;font-size:.88rem;font-weight:800;color:var(--muted)}
+.micro span{background:rgba(255,255,255,.7);padding:7px 11px;border-radius:999px;border:1px solid var(--line)}
+.visual{position:relative;min-height:470px}
+.blob{position:absolute;border-radius:50%;filter:blur(1px)}
+.b1{width:320px;height:320px;background:#d5eee2;right:20px;top:25px}
+.b2{width:180px;height:180px;background:#f7d99e;left:20px;bottom:20px}
+.b3{width:95px;height:95px;background:#bfe4e7;right:0;bottom:55px}
+.poster{position:absolute;inset:38px 30px 20px 45px;background:linear-gradient(145deg,#fffaf0,#e5f5ec);border:1px solid rgba(255,255,255,.8);border-radius:34px;box-shadow:var(--shadow);overflow:hidden;padding:24px}
+.poster-top{display:flex;justify-content:space-between;align-items:center}
+.poster-brand{font-family:var(--serif);color:var(--gold);font-size:.95rem}
+.poster-pill{background:#fff;border-radius:999px;padding:6px 10px;font-size:.72rem;font-weight:800}
+.poster h2{font-size:2.35rem;margin:30px 0 8px;max-width:390px}
+.poster-sub{color:var(--muted);font-weight:700;max-width:390px}
+.scene{position:absolute;right:14px;bottom:0;width:330px;height:245px}
+.girl{position:absolute;right:28px;bottom:8px;width:105px;height:150px}
+.girl .head{position:absolute;left:20px;top:4px;width:65px;height:65px;background:#f3c7a5;border-radius:50%}
+.girl .hair{position:absolute;left:12px;top:-3px;width:82px;height:70px;background:#754b35;border-radius:48% 52% 40% 45%}
+.girl .body{position:absolute;left:8px;top:67px;width:90px;height:83px;background:#ef9d63;border-radius:35px 35px 15px 15px}
+.girl .arm{position:absolute;width:62px;height:18px;background:#f3c7a5;border-radius:20px;top:88px;left:52px;transform:rotate(15deg)}
+.girl .book{position:absolute;width:70px;height:52px;background:#fff;border:4px solid #5fbf98;border-radius:8px;top:90px;left:70px;transform:rotate(-8deg);box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.tablet{position:absolute;left:12px;bottom:25px;width:190px;height:125px;background:#34403f;border-radius:18px;transform:rotate(-4deg);box-shadow:0 15px 25px rgba(0,0,0,.18);padding:9px}
+.screen{height:100%;border-radius:12px;background:linear-gradient(135deg,#dff3e9,#fff0cf);padding:13px}
+.screen-title{font-family:var(--serif);font-size:1rem}
+.screen-line{height:7px;background:#fff;border-radius:10px;margin-top:9px;width:80%}
+.screen-line.s2{width:60%}
+.screen-icons{display:flex;gap:8px;margin-top:12px}.screen-icons i{width:32px;height:32px;border-radius:10px;background:#f4c98a}.screen-icons i:nth-child(2){background:#5fbf98}.screen-icons i:nth-child(3){background:#4fb3bf}
+.sticker{position:absolute;background:#fff;border-radius:18px;padding:10px 13px;box-shadow:0 10px 24px rgba(70,60,40,.13);font-weight:800;font-size:.8rem}
+.s1{top:18px;right:-2px}.s2{bottom:28px;right:-12px}.s3{top:145px;left:0}
+.section{padding:80px 0}
+.section-head{text-align:center;margin-bottom:38px}
+.section-head h2{font-size:clamp(2rem,4vw,3.2rem);margin:7px 0 12px}
+.pain{background:#fffaf0}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.pain-card,.solution-card{background:var(--card);border-radius:26px;padding:30px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.pain-card{border-top:6px solid var(--orange)}
+.solution-card{border-top:6px solid var(--green)}
+.big-quote{font-family:var(--serif);font-size:1.65rem;line-height:1.25;margin:10px 0 18px}
+.checks{display:grid;gap:11px;margin-top:18px}.checks div{display:flex;gap:10px;align-items:flex-start}.checks b{color:var(--green2)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:23px;box-shadow:var(--shadow)}
+.fi{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;font-size:27px;background:var(--mint);margin-bottom:13px}
+.feature:nth-child(2) .fi{background:#fbe8bf}.feature:nth-child(3) .fi{background:#dceff1}.feature:nth-child(4) .fi{background:#f9dfcf}.feature:nth-child(5) .fi{background:#e5e4f5}.feature:nth-child(6) .fi{background:#e0f0d5}
+.feature h3{font-size:1.25rem;margin-bottom:7px}.feature p{color:var(--muted);font-size:.95rem}
+.age-strip{background:linear-gradient(135deg,#d3efe2,#f8ecd6);border-radius:32px;padding:35px;box-shadow:var(--shadow)}
+.ages{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}
+.age{background:rgba(255,255,255,.7);border-radius:18px;padding:18px;text-align:center}.age strong{font-family:var(--serif);font-size:1.45rem}.age p{font-size:.82rem;color:var(--muted);margin-top:5px}
+.app-shot{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:center}
+.mock-phone{width:min(350px,100%);margin:auto;background:#34403f;border-radius:38px;padding:12px;box-shadow:var(--shadow);transform:rotate(-2deg)}
+.phone-screen{background:linear-gradient(180deg,#f7f2e8,#fffdf9);border-radius:29px;padding:20px;min-height:510px}
+.ps-top{font-family:var(--serif);color:var(--gold)}.ps-title{font-size:1.8rem;font-family:var(--serif);margin:15px 0}.ps-card{background:#fff;border-radius:18px;padding:15px;margin-top:12px;box-shadow:0 6px 15px rgba(0,0,0,.07)}.ps-row{display:flex;gap:9px;align-items:center}.dot{width:38px;height:38px;border-radius:12px;background:#dff3e9;display:grid;place-items:center}.bar{height:8px;background:#e9e2d6;border-radius:9px;margin-top:10px}.bar i{display:block;width:68%;height:100%;background:#5fbf98;border-radius:9px}
+.bullets{display:grid;gap:14px;margin-top:20px}.bullets div{display:flex;gap:12px}.round{width:34px;height:34px;border-radius:50%;background:var(--mint);display:grid;place-items:center;font-weight:900;color:var(--green2);flex:0 0 34px}
+.pricing{background:#efe8db}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin:auto}
+.plan{background:var(--card);border:2px solid transparent;border-radius:28px;padding:32px;box-shadow:var(--shadow);position:relative}
+.plan.featured{border-color:var(--green)}
+.plan-badge{position:absolute;right:20px;top:20px;background:var(--mint);color:var(--green2);font-size:.76rem;font-weight:900;padding:7px 11px;border-radius:999px}
+.plan h3{font-size:1.55rem;margin-bottom:8px}.price{font-family:var(--serif);font-size:3.4rem;line-height:1;margin:15px 0 3px;color:var(--text)}.price small{font-family:var(--sans);font-size:.95rem;color:var(--muted);font-weight:800}
+.plan-note{color:var(--muted);min-height:50px}.plan ul{list-style:none;padding:0;margin:22px 0;display:grid;gap:10px}.plan li:before{content:"✓";font-weight:900;color:var(--green2);margin-right:9px}.plan .btn{width:100%}
+.guarantee{text-align:center;margin-top:22px;color:var(--muted);font-size:.9rem}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}.faq-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.faq-item h3{font-size:1.1rem;margin-bottom:7px}.faq-item p{color:var(--muted);font-size:.94rem}
+.final{padding:85px 0 150px;text-align:center}.final-box{background:linear-gradient(135deg,#d3efe2,#f8ecd6);border-radius:34px;padding:55px 25px;box-shadow:var(--shadow)}.final h2{font-size:clamp(2.1rem,5vw,3.5rem);margin-bottom:13px}.final p{color:var(--muted);max-width:650px;margin:0 auto 25px}
+footer{padding:25px 0 95px;text-align:center;color:#89928f;font-size:.82rem}
+.float-cta{position:fixed;right:18px;bottom:20px;z-index:50;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--green),var(--green2));color:#10302a;padding:13px 18px;border-radius:999px;font-weight:900;box-shadow:0 14px 30px rgba(69,166,128,.35);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 14px 30px rgba(69,166,128,.35)}50%{box-shadow:0 14px 36px rgba(69,166,128,.52)}}
+.mid-cta{text-align:center;margin-top:35px}.mid-cta .btn{min-width:260px}
+.small{font-size:.8rem;color:#89928f}
+@media(max-width:850px){
+ .hero-grid,.pain-grid,.app-shot,.faq{grid-template-columns:1fr}
+ .hero{padding-top:30px}.visual{min-height:430px}.poster{inset:25px 15px 15px 20px}
+ .features{grid-template-columns:1fr 1fr}.ages{grid-template-columns:repeat(2,1fr)}
+ .plans{grid-template-columns:1fr;max-width:560px}
+}
+@media(max-width:560px){
+ .container{width:min(94%,520px)}.nav-note{display:none}.hero h1{font-size:2.65rem}
+ .hero-copy{font-size:1.04rem}.visual{min-height:360px}.poster{padding:18px;inset:20px 5px 10px 5px}.poster h2{font-size:1.75rem;margin-top:20px}
+ .scene{transform:scale(.78);transform-origin:right bottom;right:-25px}.sticker.s3{left:-5px}.features{grid-template-columns:1fr}.section{padding:60px 0}
+ .pain-card,.solution-card{padding:23px}.age-strip{padding:25px}.price{font-size:3rem}.float-cta{right:10px;bottom:12px;padding:12px 15px;font-size:.9rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">Silvi-Aura</div>
+    <div class="nav-note">Una herramienta para acompañar, no para reemplazarte 💛</div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">PARA MAMÁS, PAPÁS Y FAMILIAS DE 5 A 9 AÑOS</p>
+      <h1>¿Sentís que tu hijo está creciendo <span>más rápido de lo que podés acompañarlo?</span></h1>
+      <p class="hero-copy">Entre la escuela, las tareas, la alimentación, los cambios emocionales, los límites y el deseo de que sea cada vez más autónomo… hay días en los que una siente que está improvisando.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#planes">Quiero conocer la aplicación →</a>
+        <a class="btn btn-white" href="#como-funciona">Ver cómo funciona</a>
+      </div>
+      <div class="micro">
+        <span>📱 Aplicación interactiva</span><span>🧒 De 5 a 9 años</span><span>🔄 Suscripción mensual o trimestral</span>
+      </div>
+    </div>
+
+    <div class="visual" aria-label="Ilustración de una niña usando recursos educativos">
+      <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+      <div class="poster">
+        <div class="poster-top"><span class="poster-brand">Silvi-Aura</span><span class="poster-pill">5 a 9 años</span></div>
+        <h2>Crecer acompañados</h2>
+        <p class="poster-sub">Alimentación · escuela · emociones · hábitos · juegos</p>
+        <div class="sticker s1">✨ Año a año</div>
+        <div class="sticker s2">📚 Cuentos y guías</div>
+        <div class="sticker s3">🎯 Actividades prácticas</div>
+        <div class="scene">
+          <div class="tablet"><div class="screen"><div class="screen-title">Mi espacio</div><div class="screen-line"></div><div class="screen-line s2"></div><div class="screen-icons"><i></i><i></i><i></i></div></div></div>
+          <div class="girl"><div class="hair"></div><div class="head"></div><div class="body"></div><div class="arm"></div><div class="book"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pain">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">SI TE PASA ESTO, NO ESTÁS SOLA</p>
+      <h2>La etapa cambia… y las dudas también.</h2>
+      <p class="lead" style="margin:auto">A los 5, 6, 7, 8 y 9 años aparecen nuevos desafíos. Lo que funcionaba antes puede dejar de funcionar.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="big-quote">“Quiero acompañarlo bien, pero no siempre sé qué necesita en cada edad.”</div>
+        <div class="checks">
+          <div><b>✓</b><span>La tarea termina convirtiéndose en una discusión.</span></div>
+          <div><b>✓</b><span>No sabés cómo fomentar autonomía sin terminar haciéndolo todo vos.</span></div>
+          <div><b>✓</b><span>La alimentación, las viandas y los horarios escolares te desbordan.</span></div>
+          <div><b>✓</b><span>Hay emociones o conflictos que no sabés cómo abordar.</span></div>
+          <div><b>✓</b><span>Querés reducir pantallas y tener más ideas para jugar y conversar.</span></div>
+        </div>
+      </div>
+      <div class="solution-card">
+        <p class="eyebrow">LA IDEA ES MÁS SIMPLE</p>
+        <div class="big-quote">No necesitás ser una experta. Necesitás tener orientación práctica cuando la necesitás.</div>
+        <p class="lead">Por eso creamos <strong>Crecer acompañados: de 5 a 9 años</strong>: una aplicación pensada para entrar, buscar lo que necesitás y llevarlo a la vida cotidiana.</p>
+        <div class="checks">
+          <div><b>✓</b><span>Información organizada por edad.</span></div>
+          <div><b>✓</b><span>Ideas concretas para hacer en casa.</span></div>
+          <div><b>✓</b><span>Recursos para conversar, jugar y aprender juntos.</span></div>
+          <div><b>✓</b><span>Herramientas para acompañar una autonomía progresiva.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="mid-cta"><a class="btn btn-gold" href="#planes">Quiero acompañarlo mejor →</a></div>
+  </div>
+</section>
+
+<section class="section" id="como-funciona">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">TODO LO QUE ENCONTRÁS DENTRO</p>
+      <h2>Mucho más que información: una herramienta para acompañar cada día.</h2>
+      <p class="lead" style="margin:auto">La versión paga reúne recursos interactivos, contenidos por edad y herramientas prácticas para usar en la vida real.</p>
+    </div>
+
+    <div class="features">
+      <article class="feature"><div class="fi">🍎</div><h3>Alimentación por edad</h3><p>3 opciones de alimentación, actividades y consejos para cada edad, de 5 a 9 años.</p></article>
+      <article class="feature"><div class="fi">🛒</div><h3>Menú semanal renovable</h3><p>Menú semanal con lista de compras automática para organizar mejor las comidas.</p></article>
+      <article class="feature"><div class="fi">🎲</div><h3>Un juego nuevo cada día</h3><p>Una propuesta diaria de juegos sin pantallas para compartir y estimular distintas habilidades.</p></article>
+
+      <article class="feature"><div class="fi">📚</div><h3>Cuentos originales por edad</h3><p>Historias pensadas para cada edad, con cuentos nuevos cada semana y preguntas para conversar.</p></article>
+      <article class="feature"><div class="fi">💬</div><h3>Charlas difíciles</h3><p>Fichas para abordar temas como el cuerpo, la separación de los papás, el bullying y respuestas a “¿es normal que...?”.</p></article>
+      <article class="feature"><div class="fi">💛</div><h3>Termómetro de emociones</h3><p>Identificación de emociones, ideas para calmarse y un resumen semanal para observar el proceso.</p></article>
+
+      <article class="feature"><div class="fi">🎓</div><h3>Aprender jugando</h3><p>Juegos para practicar lectura, matemática e inglés, organizados por edad.</p></article>
+      <article class="feature"><div class="fi">🏅</div><h3>Desafíos de 21 días</h3><p>Desafíos para crear hábitos, además de relajación guiada y una cápsula del tiempo para guardar recuerdos.</p></article>
+      <article class="feature"><div class="fi">🧩</div><h3>Juegos sin pantallas</h3><p>Ideas para esperas, viajes, filas, restaurantes y otros momentos en los que necesitás entretenerlos sin dispositivos.</p></article>
+
+      <article class="feature"><div class="fi">📖</div><h3>Recetario completo</h3><p>Recetas organizadas con buscador para encontrar rápidamente una opción según lo que necesitás.</p></article>
+      <article class="feature"><div class="fi">🌙</div><h3>Sueño y rutina nocturna</h3><p>Sonidos para dormir y recursos para acompañar la rutina nocturna durante la etapa escolar.</p></article>
+      <article class="feature"><div class="fi">👧👦</div><h3>Hasta 6 hijos</h3><p>Una misma cuenta puede incluir hasta 6 hijos, cada uno con su propio perfil y seguimiento.</p></article>
+    </div>
+
+    <div class="mid-cta"><a class="btn btn-gold" href="#planes">Quiero tener todos estos recursos →</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="age-strip">
+      <p class="eyebrow">ACOMPAÑAMIENTO AÑO A AÑO</p>
+      <h2>Porque cada edad trae algo diferente.</h2>
+      <div class="ages">
+        <div class="age"><strong>5 años</strong><p>Rumbo a primer grado</p></div>
+        <div class="age"><strong>6 años</strong><p>Primer grado</p></div>
+        <div class="age"><strong>7 años</strong><p>Pensamiento independiente</p></div>
+        <div class="age"><strong>8 años</strong><p>Más autonomía</p></div>
+        <div class="age"><strong>9 años</strong><p>Camino a la preadolescencia</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container app-shot">
+    <div class="mock-phone">
+      <div class="phone-screen">
+        <div class="ps-top">Silvi-Aura · 5 a 9 años</div>
+        <div class="ps-title">Hoy podemos aprender juntos 🌱</div>
+        <div class="ps-card"><div class="ps-row"><div class="dot">🍎</div><div><strong>Alimentación</strong><div class="small">Ideas para la semana</div></div></div><div class="bar"><i></i></div></div>
+        <div class="ps-card"><div class="ps-row"><div class="dot">🎲</div><div><strong>Aprender jugando</strong><div class="small">Una actividad de 10 minutos</div></div></div></div>
+        <div class="ps-card"><div class="ps-row"><div class="dot">💛</div><div><strong>Emociones</strong><div class="small">Para conversar hoy</div></div></div></div>
+        <div class="ps-card"><div class="ps-row"><div class="dot">📚</div><div><strong>Cuentos</strong><div class="small">Elegí según su edad</div></div></div></div>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow">PENSADA PARA LA VIDA REAL</p>
+      <h2 style="font-size:clamp(2rem,4vw,3.1rem);margin:8px 0 14px">Entrás, elegís lo que necesitás y lo llevás a la práctica.</h2>
+      <p class="lead">No se trata de llenar tu día de actividades. Se trata de tener recursos a mano para esos momentos en los que pensás: <strong>“¿Y ahora cómo lo acompaño?”</strong></p>
+      <div class="bullets">
+        <div><span class="round">✓</span><span><strong>Contenido por etapas:</strong> de 5 a 9 años, para que la información tenga contexto.</span></div>
+        <div><span class="round">✓</span><span><strong>Actividades simples:</strong> muchas pueden hacerse con elementos que ya tenés en casa.</span></div>
+        <div><span class="round">✓</span><span><strong>Recursos interactivos:</strong> seguimiento, juegos, preguntas, cuentos y herramientas.</span></div>
+        <div><span class="round">✓</span><span><strong>Autonomía progresiva:</strong> acompañar sin hacer por ellos.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="age-strip">
+      <p class="eyebrow">UNA SOLA CUENTA · TODA LA ETAPA</p>
+      <h2>Un espacio para cada hijo y para cada momento de la vida familiar.</h2>
+      <p class="lead" style="margin-top:12px">Podés entrar según la edad, elegir una actividad, consultar una duda, preparar la semana, jugar, leer un cuento o registrar cómo viene el proceso de cada niño.</p>
+      <div class="micro" style="margin-top:20px">
+        <span>👧👦 Hasta 6 perfiles</span>
+        <span>📅 Seguimiento por edad</span>
+        <span>🎲 Actividades diarias</span>
+        <span>📚 Contenido que se renueva</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pricing" id="planes">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">ELEGÍ CÓMO QUERÉS ACCEDER</p>
+      <h2>Dos formas de acompañar esta etapa.</h2>
+      <p class="lead" style="margin:auto">La aplicación funciona con suscripción. Podés elegir el plan que mejor se adapte a tu familia.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>Plan mensual</h3>
+        <p class="plan-note">Acceso a la aplicación con renovación mensual.</p>
+        <div class="price">US$ 5,99 <small>/ mes</small></div>
+        <ul>
+          <li>Acceso a todas las funciones Premium</li>
+          <li>Contenido de 5 a 9 años</li>
+          <li>Juegos y actividades</li>
+          <li>Cuentos, guías y herramientas</li>
+          <li>Cancelás cuando quieras</li>
+        </ul>
+        <!-- REEMPLAZAR por el checkout real del plan mensual de Hotmart -->
+        <a class="btn btn-primary" href="https://pay.hotmart.com/TU-CHECKOUT-MENSUAL">Elegir plan mensual →</a>
+      </article>
+      <article class="plan featured">
+        <span class="plan-badge">⭐ Plan trimestral</span>
+        <h3>Plan trimestral</h3>
+        <p class="plan-note">Acceso durante 3 meses por cada período de cobro.</p>
+        <div class="price">US$ 15,99 <small>/ 3 meses</small></div>
+        <ul>
+          <li>Todo el contenido y funciones Premium</li>
+          <li>Acceso durante el período contratado</li>
+          <li>Juegos, cuentos y actividades</li>
+          <li>Herramientas para la familia</li>
+          <li>Renovación trimestral hasta cancelar</li>
+        </ul>
+        <!-- REEMPLAZAR por el checkout real del plan trimestral de Hotmart -->
+        <a class="btn btn-gold" href="https://pay.hotmart.com/TU-CHECKOUT-TRIMESTRAL">Elegir plan trimestral →</a>
+      </article>
+    </div>
+    <p class="guarantee">🛡️ Tenés 7 días para solicitar el reembolso, según las condiciones configuradas en Hotmart.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">ANTES DE EMPEZAR</p>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><h3>¿Para qué edades es?</h3><p>Está pensada para acompañar a niños de 5 a 9 años, con contenidos organizados por etapas.</p></div>
+      <div class="faq-item"><h3>¿Es una aplicación para el niño o para el adulto?</h3><p>Es un recurso familiar. Muchas actividades se realizan junto al niño y otras sirven como orientación para el adulto.</p></div>
+      <div class="faq-item"><h3>¿Necesito materiales especiales?</h3><p>No. La propuesta incluye actividades que pueden realizarse con elementos cotidianos y juegos que no necesitan pantallas.</p></div>
+      <div class="faq-item"><h3>¿Reemplaza al pediatra o a la escuela?</h3><p>No. Es contenido educativo y una herramienta de acompañamiento; no reemplaza la consulta con profesionales ni las indicaciones de la escuela.</p></div>
+      <div class="faq-item"><h3>¿Puedo cancelar?</h3><p>Sí. El plan está configurado como suscripción y el cobro continúa hasta que el cliente cancela.</p></div>
+      <div class="faq-item"><h3>¿Qué pasa después de pagar?</h3><p>Hotmart gestiona el pago y el acceso según la configuración de tu producto y suscripción.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <div class="final-box">
+      <p class="eyebrow">CRECER ACOMPAÑADOS · 5 A 9 AÑOS</p>
+      <h2>No necesitás hacerlo perfecto.<br>Podés hacerlo acompañado.</h2>
+      <p>Tené en un solo lugar recursos para alimentación, escuela, emociones, hábitos, juegos y autonomía, organizados para esta etapa.</p>
+      <a class="btn btn-primary" href="#planes">Ver los planes de suscripción →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <p><strong>Silvi-Aura</strong> · Crecer acompañados: de 5 a 9 años</p>
+    <p style="margin-top:7px">Contenido educativo. No reemplaza la consulta con pediatra, profesionales de la salud ni la orientación escolar.</p>
+  </div>
+</footer>
+
+<a class="float-cta" href="#planes" aria-label="Ver planes de suscripción">✨ Ver planes</a>
+
+<script>
+// Los dos enlaces de Hotmart están marcados arriba para que puedas reemplazarlos.
+// El resto de la página no necesita configuración para funcionar.
+</script>
+</body>
+</html>
